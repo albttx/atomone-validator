@@ -29,7 +29,7 @@ jobs:
         run: |
           for f in ${{ steps.files.outputs.all }}; do
             echo "file: $f"
-            if [[ "$f" == "govgen-1/gentx/*.json" ]]; then
+            if [[ "$f" == "govgen-1/gentx/"* ]]; then
               echo "checking file: $f"
 
               COMMISSION_RATE=$(cat $f | jq -r '.body.messages[0].commission.rate')
