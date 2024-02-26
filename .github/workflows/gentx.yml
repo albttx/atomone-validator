@@ -2,7 +2,7 @@ name: Gentx checker
 
 on:
   pull_request:
-    types: [ready_for_review]
+    types: [ready_for_review, labeled]
   push:
     paths:
       - govgen-1/gentx/*.json
