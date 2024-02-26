@@ -37,7 +37,7 @@ jobs:
               STAKED_AMOUNT=$(cat $f | jq -r '.body.messages[0].value.amount')
 
               # bc return 1 when success
-              echo "$COMMISSION_RATE == 0" | bc            && echo "commission_rate must be 0" && exit 1
+              echo "$COMMISSION_RATE == 0" | bc            && echo "commission_rate: $COMMISSION_RATE != 0" && exit 1
               echo "$COMMISSION_MAX_RATE == 0" | bc        && echo "commission_max_rate must be 0" && exit 1
               echo "$COMMISSION_MAX_CHANGE_RATE == 0" | bc && echo "commission_max_change_rate must be 0" && exit 1
 
