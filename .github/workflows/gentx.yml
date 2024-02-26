@@ -53,12 +53,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download govgend
-        runs: |
+        run: |
           wget -O /usr/bin/govgend ${GOVGEND_URL}
           chmod +x /usr/bin/govgend
 
       - name: Collect gentxs
-        runs: |
+        run: |
           govgend init github-ci --chain-id govgen-1
 
           wget -O /root/.govgen/config/genesis.json $GENESIS_URL
@@ -72,5 +72,5 @@ jobs:
           govgend collect-gentx --gentx-dir ./govgen-1/gentx
 
       - name: Validate genesis
-        runs: |
+        run: |
           govgend validate-genesis
