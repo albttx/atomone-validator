@@ -28,7 +28,6 @@ jobs:
       - name: Check gentx values
         run: |
           for f in ${{ steps.files.outputs.all }}; do
-            echo "file: $f"
             if [[ "$f" == "govgen-1/gentx/"* ]]; then
               echo "checking file: $f"
 
@@ -54,7 +53,7 @@ jobs:
 
       - name: Download govgend
         run: |
-          wget -O /usr/bin/govgend ${GOVGEND_URL}
+          wget -O /usr/bin/govgend "https://atomone.fra1.digitaloceanspaces.com/govgen/bin/govgend_linux_amd64_v1/govgend"
           chmod +x /usr/bin/govgend
 
       - name: Collect gentxs
